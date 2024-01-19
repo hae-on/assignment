@@ -8,6 +8,14 @@ const colors = {
   transparentOrange: 'rgba(247, 90, 47, 0.1)',
 } as const;
 
+const textColors = {
+  default: colors.black,
+} as const;
+
+const backgroundColors = {
+  default: colors.white,
+} as const;
+
 const borderColors = {
   default: colors.gray2,
 } as const;
@@ -18,6 +26,8 @@ const borderRadius = {
 
 const theme = {
   colors,
+  textColors,
+  backgroundColors,
   borderColors,
   borderRadius,
 };
