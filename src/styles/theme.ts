@@ -14,6 +14,7 @@ const textColors = {
 
 const backgroundColors = {
   default: colors.white,
+  light: colors.gray,
 } as const;
 
 const borderColors = {

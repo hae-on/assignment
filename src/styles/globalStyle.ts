@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background: ${({ theme }) => theme.backgroundColors.white};
+  background: ${({ theme }) => theme.backgroundColors.light};
 }
 
 a {
