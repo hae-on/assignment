@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import useOrderInfoValueContext from 'src/hooks/context/useOrderInfoValueContext';
@@ -5,13 +7,32 @@ import useOrderInfoValueContext from 'src/hooks/context/useOrderInfoValueContext
 const OrderInfoBox = () => {
   const { totalCount, totalPrice } = useOrderInfoValueContext();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleOrderClick = async () => {
+    setIsLoading(true);
+
+    try {
+      navigate('/complete');
+    } catch (error) {
+      navigate('/error');
+      throw new Error('주문이 실패했습니다.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <OrderInfoBoxContainer>
       <OrderInfoWrapper>
         <p>총 수량: {totalCount}개</p>
         <p>총 가격: {totalPrice.toLocaleString()}원</p>
       </OrderInfoWrapper>
-      <OrderButton>주문하기</OrderButton>
+      <OrderButton onClick={handleOrderClick} totalCount={totalCount}>
+        {isLoading ? '로딩중...' : '주문하기'}
+      </OrderButton>
     </OrderInfoBoxContainer>
   );
 };
@@ -41,10 +62,10 @@ const OrderInfoWrapper = styled.div`
   }
 `;
 
-const OrderButton = styled.button`
+const OrderButton = styled.button<{ totalCount: number }>`
   width: 100%;
   height: 48px;
   margin-top: 18px;
-  background: ${({ theme }) => theme.colors.gray1};
+  background: ${({ totalCount, theme }) => (totalCount > 0 ? theme.colors.black : theme.colors.gray1)};
   color: ${({ theme }) => theme.textColors.light};
 `;
