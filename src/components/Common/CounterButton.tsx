@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
-const CounterButton = () => {
-  const [count, setCount] = useState(0);
+interface CounterButtonProps {
+  count: number;
+  onCount: (count: number) => void;
+}
 
+const CounterButton = ({ count, onCount }: CounterButtonProps) => {
   const handleDecrease = () => {
-    if (count > 0) setCount((prev) => prev - 1);
+    if (count > 0) {
+      onCount(count - 1);
+    }
   };
 
   const handleIncrease = () => {
-    if (count < 999) setCount((prev) => prev + 1);
+    if (count < 999) {
+      onCount(count + 1);
+    }
   };
 
   return (

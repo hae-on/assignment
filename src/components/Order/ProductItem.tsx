@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { styled } from 'styled-components';
 
+import useOrderInfoActionContext from 'src/hooks/context/useOrderInfoActionContext';
+import useOrderInfoValueContext from 'src/hooks/context/useOrderInfoValueContext';
 import type { Product } from 'src/types/product';
 
 import Badge from '../Common/Badge';
@@ -10,7 +13,19 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
+  const { totalCount, totalPrice } = useOrderInfoValueContext();
+  const { setTotalCount, setTotalPrice } = useOrderInfoActionContext();
+
   const { name, event, price } = product;
+
+  const [count, setCount] = useState(0);
+
+  const handleCountChange = (newCount: number) => {
+    const diff = newCount - count;
+    setCount(newCount);
+    setTotalCount(totalCount + diff);
+    setTotalPrice(totalPrice + diff * price);
+  };
 
   return (
     <ProductItemContainer>
@@ -21,7 +36,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
           {event > 0 && <Badge label="이벤트" />}
         </ProductTopWrapper>
         <ProductBottomWrapper>
-          <CounterButton />
+          <CounterButton count={count} onCount={handleCountChange} />
           <span>{price.toLocaleString()}원</span>
         </ProductBottomWrapper>
       </ProductWrapper>

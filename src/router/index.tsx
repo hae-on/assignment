@@ -1,11 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import OrderInfoProvider from 'src/context/OrderInfoContext';
+
 import App from './App';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <OrderInfoProvider>
+        <App />
+      </OrderInfoProvider>
+    ),
     children: [
       {
         path: '/',

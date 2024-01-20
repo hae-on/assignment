@@ -1,11 +1,15 @@
 import { styled } from 'styled-components';
 
+import useOrderInfoValueContext from 'src/hooks/context/useOrderInfoValueContext';
+
 const OrderInfoBox = () => {
+  const { totalCount, totalPrice } = useOrderInfoValueContext();
+
   return (
     <OrderInfoBoxContainer>
       <OrderInfoWrapper>
-        <p>총 수량: 0개</p>
-        <p>총 가격: 0원</p>
+        <p>총 수량: {totalCount}개</p>
+        <p>총 가격: {totalPrice.toLocaleString()}원</p>
       </OrderInfoWrapper>
       <OrderButton>주문하기</OrderButton>
     </OrderInfoBoxContainer>
@@ -28,7 +32,9 @@ const OrderInfoBoxContainer = styled.div`
 `;
 
 const OrderInfoWrapper = styled.div`
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   > p {
     margin-bottom: 5px;
