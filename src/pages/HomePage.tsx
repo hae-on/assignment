@@ -1,12 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { Logo } from 'src/assets/Icons';
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/order');
+  };
+
   return (
     <HomeContainer>
       <Logo />
-      <NavigateButton>주문하러 가기</NavigateButton>
+      <NavigateButton onClick={handleClick}>주문하러 가기</NavigateButton>
     </HomeContainer>
   );
 };
