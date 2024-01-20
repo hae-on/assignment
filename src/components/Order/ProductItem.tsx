@@ -28,7 +28,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
   };
 
   return (
-    <ProductItemContainer>
+    <ProductItemContainer count={count}>
       <ProductImage />
       <ProductWrapper>
         <ProductTopWrapper>
@@ -46,13 +46,14 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
 export default ProductItem;
 
-const ProductItemContainer = styled.div`
+const ProductItemContainer = styled.div<{ count: number }>`
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 80px;
   margin: 18px 0;
   padding: 9px;
+  background: ${({ count, theme }) => (count > 0 ? theme.colors.transparentOrange : theme.colors.white)};
   border: 1px solid ${({ theme }) => theme.borderColors.default};
   border-radius: ${({ theme }) => theme.borderRadius.default};
 `;
