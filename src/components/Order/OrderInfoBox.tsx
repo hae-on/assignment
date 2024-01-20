@@ -31,7 +31,7 @@ const OrderInfoBox = () => {
         <p>총 수량: {totalCount}개</p>
         <p>총 가격: {totalPrice.toLocaleString()}원</p>
       </OrderInfoWrapper>
-      <OrderButton onClick={handleOrderClick} totalCount={totalCount}>
+      <OrderButton onClick={handleOrderClick} totalCount={totalCount} isLoading={isLoading}>
         {isLoading ? '로딩중...' : '주문하기'}
       </OrderButton>
     </OrderInfoBoxContainer>
@@ -63,10 +63,11 @@ const OrderInfoWrapper = styled.div`
   }
 `;
 
-const OrderButton = styled.button<{ totalCount: number }>`
+const OrderButton = styled.button<{ totalCount: number; isLoading: boolean }>`
   width: 100%;
   height: 48px;
   margin-top: 18px;
-  background: ${({ totalCount, theme }) => (totalCount > 0 ? theme.colors.black : theme.colors.gray1)};
+  background: ${({ totalCount, isLoading, theme }) =>
+    totalCount === 0 || isLoading ? theme.colors.gray1 : theme.colors.black};
   color: ${({ theme }) => theme.textColors.light};
 `;
