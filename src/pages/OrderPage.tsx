@@ -5,9 +5,12 @@ import { fetchOrderProducts } from 'src/apis/orderProducts';
 import Header from 'src/components/Common/Header';
 import OrderInfoBox from 'src/components/Order/OrderInfoBox';
 import ProductList from 'src/components/Order/ProductList';
+import useOrderInfoActionContext from 'src/hooks/context/useOrderInfoActionContext';
 import type { Product } from 'src/types/product';
 
 export const OrderPage = () => {
+  const { setTotalCount, setTotalPrice } = useOrderInfoActionContext();
+
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -22,6 +25,11 @@ export const OrderPage = () => {
 
     fetchProduct();
   }, []);
+
+  useEffect(() => {
+    setTotalCount(0);
+    setTotalPrice(0);
+  }, [setTotalCount, setTotalPrice]);
 
   return (
     <>
