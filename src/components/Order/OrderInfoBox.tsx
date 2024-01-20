@@ -20,6 +20,7 @@ const OrderInfoBoxContainer = styled.div`
   width: 350px;
   height: 170px;
   padding: 22px;
+  background: ${({ theme }) => theme.backgroundColors.default};
   border-top-left-radius: ${({ theme }) => theme.borderRadius.large};
   border-top-right-radius: ${({ theme }) => theme.borderRadius.large};
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
