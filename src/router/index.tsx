@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { PATH } from 'src/constants/path';
 import OrderInfoProvider from 'src/context/OrderInfoContext';
+import NotFoundPage from 'src/pages/NotFoundPage';
 
 import App from './App';
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           const { ErrorPage } = await import('../pages/ErrorPage');
           return { Component: ErrorPage };
         },
+      },
+      {
+        path: '/*',
+        element: <NotFoundPage />,
       },
     ],
   },
