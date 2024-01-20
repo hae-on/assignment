@@ -1,20 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { Logo } from 'src/assets/Icons';
 import { PATH } from 'src/constants/path';
 
 export const HomePage = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(PATH.ORDER);
-  };
-
   return (
     <HomeContainer>
       <Logo />
-      <NavigateButton onClick={handleClick}>주문하러 가기</NavigateButton>
+      <OrderPageLink to={PATH.ORDER}>주문하러 가기</OrderPageLink>
     </HomeContainer>
   );
 };
@@ -31,7 +25,10 @@ const HomeContainer = styled.section`
   background: ${({ theme }) => theme.backgroundColors.dark};
 `;
 
-const NavigateButton = styled.button`
+const OrderPageLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 172px;
   height: 88px;
   margin-top: 40px;
