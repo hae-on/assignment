@@ -10,6 +10,7 @@ const colors = {
 
 const textColors = {
   default: colors.black,
+  light: colors.white,
 } as const;
 
 const backgroundColors = {

@@ -9,7 +9,7 @@ const fonts = css`
   input,
   textarea {
     color: ${({ theme }) => theme.textColors.default};
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-family:
       'Pretendard Variable',
       Pretendard,
