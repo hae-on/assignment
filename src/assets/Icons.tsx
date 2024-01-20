@@ -1,13 +1,13 @@
-export const CheckIcon = () => {
+export const CheckIcon = () => (
   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M17.5902 31.75L9.25016 23.41L6.41016 26.23L17.5902 37.41L41.5902 13.41L38.7702 10.59L17.5902 31.75Z"
       fill="black"
     />
-  </svg>;
-};
+  </svg>
+);
 
-export const Logo = () => {
+export const Logo = () => (
   <svg width="150" height="51" viewBox="0 0 150 51" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M42.9977 9.30005L42.5777 15.9075H46.0652L39.1577 27.6975H48.1202L53.2352 17.28L55.1177 27.6975H64.0802L60.3902 15.9075H64.8452L65.3552 9.30005H42.9977Z"
@@ -41,10 +41,10 @@ export const Logo = () => {
     />
     <path d="M27.5477 9.30005L26.3477 29.415H32.5427L33.3452 15.9075H39.9752L40.3127 9.30005H27.5477Z" fill="white" />
     <path d="M23.5201 32.1H17.1076L16.3276 45.1125H37.9876L38.3926 38.775H23.1226L23.5201 32.1Z" fill="white" />
-  </svg>;
-};
+  </svg>
+);
 
-export const DefaultLogo = () => {
+export const DefaultLogo = () => (
   <svg width="95" height="32" viewBox="0 0 95 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M26.9787 5.83533L26.7152 9.98121H28.9035L24.5693 17.3789H30.1929L33.4023 10.8424L34.5835 17.3789H40.207L37.8917 9.98121H40.687L41.007 5.83533H26.9787Z"
@@ -81,5 +81,5 @@ export const DefaultLogo = () => {
     />
     <path d="M17.2847 5.83533L16.5317 18.4565H20.4188L20.9223 9.98121H25.0823L25.2941 5.83533H17.2847Z" fill="white" />
     <path d="M14.7576 20.1412H10.734L10.2446 28.3059H23.8352L24.0893 24.3295H14.5082L14.7576 20.1412Z" fill="white" />
-  </svg>;
-};
+  </svg>
+);

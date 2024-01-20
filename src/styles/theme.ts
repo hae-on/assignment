@@ -15,6 +15,7 @@ const textColors = {
 const backgroundColors = {
   default: colors.white,
   light: colors.gray,
+  dark: colors.black,
 } as const;
 
 const borderColors = {
@@ -23,6 +24,7 @@ const borderColors = {
 
 const borderRadius = {
   default: '10px',
+  large: '20px',
 } as const;
 
 const theme = {
