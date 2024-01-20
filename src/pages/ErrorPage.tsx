@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { PATH } from 'src/constants/path';
+
 export const ErrorPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/order');
+      navigate(PATH.ORDER);
     }, 3000);
 
     return () => {

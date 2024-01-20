@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { PATH } from 'src/constants/path';
 import useOrderInfoValueContext from 'src/hooks/context/useOrderInfoValueContext';
 
 const OrderInfoBox = () => {
@@ -15,9 +16,9 @@ const OrderInfoBox = () => {
     setIsLoading(true);
 
     try {
-      navigate('/complete');
+      navigate(PATH.COMPLETE);
     } catch (error) {
-      navigate('/error');
+      navigate(PATH.ERROR);
       throw new Error('주문이 실패했습니다.');
     } finally {
       setIsLoading(false);

@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { Logo } from 'src/assets/Icons';
+import { PATH } from 'src/constants/path';
 
 export const HomePage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/order');
+    navigate(PATH.ORDER);
   };
 
   return (
